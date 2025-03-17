@@ -1,32 +1,33 @@
 // Typing Effect
 const words = ["Ritix", "Cricket", "Geopolitics", "Technology"];
-let i = 0, j = 0;
-let typingText = document.getElementById("typing-text");
+let index = 0;
+let charIndex = 0;
+let isDeleting = false;
+const dynamicText = document.querySelector(".dynamic-text");
 
 function typeEffect() {
-    if (j < words[i].length) {
-        typingText.innerHTML += words[i][j];
-        j++;
-        setTimeout(typeEffect, 150);
+    let currentWord = words[index];
+    if (isDeleting) {
+        dynamicText.textContent = currentWord.substring(0, charIndex--);
     } else {
-        setTimeout(eraseEffect, 1000);
+        dynamicText.textContent = currentWord.substring(0, charIndex++);
     }
-}
 
-function eraseEffect() {
-    if (j > 0) {
-        typingText.innerHTML = words[i].substring(0, j - 1);
-        j--;
-        setTimeout(eraseEffect, 100);
-    } else {
-        i = (i + 1) % words.length;
-        setTimeout(typeEffect, 500);
+    if (!isDeleting && charIndex === currentWord.length) {
+        isDeleting = true;
+        setTimeout(typeEffect, 1000);
+    } else if (isDeleting && charIndex === 0) {
+        isDeleting = false;
+        index = (index + 1) % words.length;
     }
+
+    setTimeout(typeEffect, isDeleting ? 50 : 100);
 }
 
 typeEffect();
 
-// Dark/Light Mode Toggle
-document.getElementById("mode-toggle").addEventListener("change", function () {
-    document.body.classList.toggle("dark-mode");
+// Light/Dark Mode Toggle
+const toggleSwitch = document.getElementById("theme-toggle");
+toggleSwitch.addEventListener("change", () => {
+    document.body.classList.toggle("dark");
 });
