@@ -8,7 +8,7 @@
 </head>
 <body>
     <header>
-        <img src="ritix-logo.png" alt="Ritix Logo" class="logo">
+        <img src="ritix-logo.png" alt="logo.jpg" class="logo">
     </header>
     <div class="border-line"></div>
 
@@ -27,7 +27,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Hello World!</title>
+    <title>Ritix!</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
