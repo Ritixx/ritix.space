@@ -3,31 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ritix</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Ritix Space</title>
+    <style>
+        body {
+            background-color: #121212;
+            color: white;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 50px;
+        }
+        .typing-container {
+            font-size: 24px;
+            font-weight: bold;
+        }
+    </style>
+    <!-- Typed.js Library -->
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
 </head>
 <body>
 
-    <!-- Logo -->
-    <div class="logo">RITIX</div>
-    
-    <!-- Border Line -->
-    <div class="border-line"></div>
-
-    <!-- Typing Effect -->
+    <h1>Welcome to Ritix Space</h1>
     <div class="typing-container">
-        <span class="static-text">Choose</span>
-        <span class="dynamic-text"></span>
+        <span id="typed-text"></span>
     </div>
 
-    <!-- Light/Dark Mode Toggle -->
-    <div class="toggle-container">
-        <label class="switch">
-            <input type="checkbox" id="theme-toggle">
-            <span class="slider"></span>
-        </label>
-    </div>
+    <script>
+        var typed = new Typed("#typed-text", {
+            strings: [
+                "Oh late? No problem!",
+                "Choose Ritix",
+                "Choose Cricket",
+                "Choose Geopolitics",
+                "Choose Technology"
+            ],
+            typeSpeed: 100,  // Normal typing speed
+            backSpeed: 60,   // Smooth backspacing speed
+            backDelay: 2000, // Delay before erasing starts
+            startDelay: 500, // Small delay before typing starts
+            loop: true,      // Infinite loop
+            showCursor: true, // Show blinking cursor
+            cursorChar: "|"
+        });
+    </script>
 
-    <script src="script.js"></script>
 </body>
 </html>
