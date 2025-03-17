@@ -1,3 +1,18 @@
+header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    position: relative;
+}
+
+.logo {
+    position: absolute;
+    left: 20px;  /* Moves logo to the left */
+    top: 10px;   /* Moves logo to the top */
+    width: 50px;  /* Adjust size as needed */
+    height: auto; /* Maintain aspect ratio */
+}
 /* General Page Styling */
 body {
     font-family: Arial, sans-serif;
