@@ -12,22 +12,24 @@ function typeEffect() {
     } else {
         dynamicText.textContent = currentWord.substring(0, charIndex++);
     }
-
+    
+    let typingSpeed;
+    
     if (!isDeleting && charIndex === currentWord.length) {
+        // Start deleting immediately after reaching the end of the word
         isDeleting = true;
-        setTimeout(typeEffect, 1500);
+        typingSpeed = 100; // No pause - start deleting at regular delete speed
     } else if (isDeleting && charIndex === 0) {
+        // Move to the next word with no delay
         isDeleting = false;
         index = (index + 1) % words.length;
+        typingSpeed = 0; // No delay between words
+    } else {
+        // Normal typing/deleting speed
+        typingSpeed = isDeleting ? 100 : 200;
     }
-
-    setTimeout(typeEffect, isDeleting ? 70 : 150);
+    
+    setTimeout(typeEffect, typingSpeed);
 }
 
 typeEffect();
-
-// Light/Dark Mode Toggle
-const toggleSwitch = document.getElementById("theme-toggle");
-toggleSwitch.addEventListener("change", () => {
-    document.body.classList.toggle("dark");
-});
