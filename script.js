@@ -15,13 +15,13 @@ function typeEffect() {
 
     if (!isDeleting && charIndex === currentWord.length) {
         isDeleting = true;
-        setTimeout(typeEffect, 1000);
+        setTimeout(typeEffect, 1500);
     } else if (isDeleting && charIndex === 0) {
         isDeleting = false;
         index = (index + 1) % words.length;
     }
 
-    setTimeout(typeEffect, isDeleting ? 50 : 100);
+    setTimeout(typeEffect, isDeleting ? 70 : 150);
 }
 
 typeEffect();
