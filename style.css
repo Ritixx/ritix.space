@@ -1,52 +1,61 @@
-/* General Page Styling */
+/* Default Light Mode */
 body {
     font-family: Arial, sans-serif;
     text-align: center;
-    background-color: white;
-    color: black;
-    transition: background 0.5s, color 0.5s;
+    background-color: #ffffff;
+    color: #000;
+    transition: background 0.3s, color 0.3s;
 }
 
 /* Dark Mode */
-.dark-mode {
-    background-color: #1a1a1a;
-    color: white;
+body.dark {
+    background-color: #121212;
+    color: #fff;
 }
 
-/* Logo Styling */
+/* Logo */
 .logo {
-    height: 50px;
-    margin-top: 20px;
+    font-size: 32px;
+    font-weight: bold;
+    padding: 20px;
 }
 
 /* Border Line */
 .border-line {
-    width: 100%;
-    height: 3px;
-    background-color: black;
-    margin: 10px 0;
+    width: 80%;
+    height: 2px;
+    background: black;
+    margin: auto;
 }
 
 /* Typing Effect */
-h1 {
-    font-size: 2rem;
-}
-
-h1 span {
-    font-weight: bold;
-    color: blue;
-}
-
-/* Toggle Switch */
-.toggle-switch {
-    position: relative;
-    display: inline-block;
-    width: 60px;
-    height: 34px;
+.typing-container {
+    font-size: 24px;
     margin-top: 20px;
 }
 
-.toggle-switch input {
+.static-text {
+    font-weight: bold;
+}
+
+.dynamic-text {
+    font-weight: bold;
+    color: #ff5722;
+}
+
+/* Toggle Switch */
+.toggle-container {
+    margin-top: 20px;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 25px;
+}
+
+.switch input {
     opacity: 0;
     width: 0;
     height: 0;
@@ -60,26 +69,26 @@ h1 span {
     right: 0;
     bottom: 0;
     background-color: #ccc;
-    transition: 0.4s;
-    border-radius: 34px;
+    transition: .4s;
+    border-radius: 25px;
 }
 
 .slider:before {
     position: absolute;
     content: "";
-    height: 26px;
-    width: 26px;
+    height: 18px;
+    width: 18px;
     left: 4px;
-    bottom: 4px;
+    bottom: 3px;
     background-color: white;
-    transition: 0.4s;
+    transition: .4s;
     border-radius: 50%;
 }
 
 input:checked + .slider {
-    background-color: blue;
+    background-color: #ff5722;
 }
 
 input:checked + .slider:before {
-    transform: translateX(26px);
+    transform: translateX(24px);
 }
