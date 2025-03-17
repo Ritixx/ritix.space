@@ -1,38 +1,32 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ritix Landing Page</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-    <header>
-        <img src="ritix-logo.png" alt="logo.jpg" class="logo">
-    </header>
-    <div class="border-line"></div>
+// Typing Effect
+const words = ["Ritix", "Cricket", "Geopolitics", "Technology"];
+let i = 0, j = 0;
+let typingText = document.getElementById("typing-text");
 
-    <h1>Choose <span id="typing-word"></span></h1>
+function typeEffect() {
+    if (j < words[i].length) {
+        typingText.innerHTML += words[i][j];
+        j++;
+        setTimeout(typeEffect, 150);
+    } else {
+        setTimeout(eraseEffect, 1000);
+    }
+}
 
+function eraseEffect() {
+    if (j > 0) {
+        typingText.innerHTML = words[i].substring(0, j - 1);
+        j--;
+        setTimeout(eraseEffect, 100);
+    } else {
+        i = (i + 1) % words.length;
+        setTimeout(typeEffect, 500);
+    }
+}
 
+typeEffect();
 
-    <label class="toggle-switch">
-        <input type="checkbox" id="mode-toggle">
-        <span class="slider"></span>
-    </label>
-
-    <script src="script.js"></script>
-</body>
-</html>
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Ritix!</title>
-    <link rel="stylesheet" href="styles.css" />
-  </head>
-  <body>
-      <h1 class="title">Hello World! </h1>
-      <p id="currentTime"></p>
-      <script src="script.js"></script>
-  </body>
-</html>
+// Dark/Light Mode Toggle
+document.getElementById("mode-toggle").addEventListener("change", function () {
+    document.body.classList.toggle("dark-mode");
+});
